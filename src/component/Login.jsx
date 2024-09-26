@@ -13,14 +13,14 @@ function Login() {
     const [error , setError] = useState('')
     const {register, handleSubmit} = useForm()
 
-    const Login = async(data) => {
+    const Login = async (data) => {
         setError("")
 
         try {
            const session = await authServices.login(data)
            if (session) {
-            const userData = await authServices.getCurrentUser()
-            if (userData)  dispatch(authLogin(userData));
+                 const userData = await authServices.getCurrentUser()
+                 if (userData)  dispatch(authLogin({userData}));
                  Navigate('/')
             
            }
@@ -53,18 +53,18 @@ function Login() {
        <form onSubmit={handleSubmit(Login)} className='mt-8'>
         <div className='space-y-5'>
             <Input 
-            lable = 'Email'
-            placeholder='Enter your Email'
-            type='Email'
-            {...register('Email', {
+            lable = 'email'
+            placeholder='Enter your email'
+            type='email'
+            {...register('email', {
                 required : true
             })}
             />
             <Input
             lable = 'password'
-            placeholder='Enter your Password'
-            type='Password'
-            {...register('Password' , {
+            placeholder='Enter your password'
+            type='password'
+            {...register('password' , {
                 required : true
             })}
             />

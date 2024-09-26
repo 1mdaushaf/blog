@@ -5,13 +5,17 @@ import appwriteService from '../appwrite/config'
 function AllPost() {
     const [posts, setpost] = useState([])
 
-    useEffect(() => {}, [])
+    useEffect(() => {
+        
+        appwriteService.getPost([]).then((post) => {
+            if (post) {
+                setpost(post.documents)
+            }
+        })
 
-    appwriteService.getPost([]).then((post) => {
-        if (post) {
-            setpost(post.documents)
-        }
-    })
+    }, [])
+
+   
 
   return (
    <div className='w-full py-8'>

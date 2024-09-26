@@ -17,10 +17,11 @@ function SignUpC() {
     const create = async(data) => {
         setError("")
         try {
-            const userData =  await authServices.creatAccount(data)
+            
+            const userData =  await authServices.createAccount(data)
             if (userData) {
               const userData =  await authServices.getCurrentUser()
-                if (userData) dispatch(login(userData))
+                if (userData) dispatch(login({userData}))
                 Navigate('/')
                                
             }
@@ -54,7 +55,7 @@ function SignUpC() {
             <Input
             lable = 'Name'
             placeholder='Enter your Name'
-            {...register('Name', {
+            {...register('name', {
                 required :true
             })}
             />
@@ -62,7 +63,7 @@ function SignUpC() {
             lable = 'Email'
             placeholder='Enter your Email'
             type='Email'
-            {...register('Email', {
+            {...register('email', {
                 required : true
             })}
             />
@@ -70,7 +71,7 @@ function SignUpC() {
             lable = 'Password'
             placeholder='Enter your Password'
             type='Password'
-            {...register('Password', {
+            {...register('password', {
                 required :true
             })}
             />

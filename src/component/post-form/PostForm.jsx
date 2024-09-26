@@ -8,6 +8,8 @@ import { useSelector } from "react-redux";
 
 export default function postForm({post}) {
 
+    
+
     const {register, handleSubmit, watch, setValue, control, getValues} = useForm({
         defaultValues:{
             title : post ?.title || "",
@@ -74,6 +76,7 @@ export default function postForm({post}) {
 
         return () => subscription.unsubscribe()
     }, [watch, slugTransform , setValue])
+
 
   return (
     <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
