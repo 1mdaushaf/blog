@@ -15,7 +15,7 @@ export class Service {
         this.Bucket = new Storage(this.client)
     }
 
-    async creatPost({title, slug, featuredImage, content, status, userId}){
+    async creatPost({title, slug, featuredImage, content, status, userID}){
 
         try {
             return await this.Databases.createDocument(
@@ -27,7 +27,7 @@ export class Service {
                     featuredImage,
                     content,
                     status,
-                    userId
+                    userID
                 }
             )
 
