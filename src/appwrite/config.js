@@ -12,7 +12,7 @@ export class Service {
             .setEndpoint(conf.appwriteUrl)
             .setProject(conf.appwriteProjectId);
         this.Databases = new Databases(this.client)
-        this.Bucket = new Storage(this.client)
+        this.Bucket = new Storage(this.client) 
     }
 
     async creatPost({title, slug, featuredImage, content, status, userID}){
@@ -169,7 +169,7 @@ export class Service {
     getFilePreview(fileId){
         return this.Bucket.getFilePreview(
             conf.appwriteBucketId,
-            fileId
+            fileId,
         )
     }
 }
